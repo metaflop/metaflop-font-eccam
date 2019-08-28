@@ -1,0 +1,25 @@
+input ec/exaccess;
+input ec/expseudo;
+mode_setup; font_setup; pseudo_setup;
+input ec/exbraces;
+input ec/expunct;
+input ec/exromp;
+input ec/exrulett;
+input ec/exrllett;
+input ec/exrdigit;
+
+font_coding_scheme:="T1";
+boundarychar:=oct"027";
+font_slant slant; 
+font_x_height x_height#;
+font_cap_height cap_height#;
+font_asc_height asc_height#;
+font_acc_cap_height (cap_height#+acc_height#);
+font_desc_depth desc_depth#;
+font_max_height (max(asc_height#,body_height#,
+  cap_height#+acc_height#));
+font_max_depth (max(desc_depth#,paren_depth#,the_ogonek_depth#));
+font_baselineskip max(1.2*designsize,body_height#+paren_depth#);
+
+
+

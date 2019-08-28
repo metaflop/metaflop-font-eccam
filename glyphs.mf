@@ -1,0 +1,113 @@
+% first: some hidden parameters
+font_identifier:="ECRM";
+font_size 10pt#;            % the "design size" of this font
+stem#:=px#;
+hair#:=py#;
+cap_stem#:=if style=2: 1 else: 1.25 fi stem#;
+cap_hair#:=if style=0: 1.15 else: 1 fi hair#;
+slab#:=cap_band#:=cap_hair#;
+bar#:=hair#;
+cap_bar#:=hair#;
+tiny#:=.99corner*min(hair#,stem#);
+fine#:=.85tiny#; 
+crisp#:=if (style=0) and (slant<>0): 1 else: 0 fi tiny#; 
+thin_join#:=if style=1: .61hair# else: fine# fi;
+width_adj#:=if style=1: (u#+max(stem#,hair#))/3.2 else: 0pt# fi;
+serif_fit#:=if style=1: -.25 else: 0 fi *max(stem#,hair#);
+cap_serif_fit#:=if style=1: -.35 else: .2 fi *max(stem#,hair#);
+letter_fit#:=slant*36.8/36pt#; 
+asc_height#:=asc#;   
+cap_height#:=cap#;    
+fig_height#:=0.944cap_height#; 
+x_height#:=mean#;   
+math_axis#:=(cap_height#+x_height#)/4.45;   
+bar_height#:=.6x_height#;   
+desc_depth#:=des#;  
+comma_depth#:=if style=0: 1 else: .6 fi desc_depth#;  
+apex_o#:=if style=1: 0 elseif style=2: 3 else: 8 fi /36pt#;
+apex_corr#:=if style=1: 4 elseif style=2: 8 else: 0 fi /36pt#;
+o#:=(2pt#/hair#)/36pt#;  
+vair#:=.85hair#; 
+vair_corr#:=if style=2: 0 else: 1/8 fi vair#;
+stem_corr#:=if style=2: 0 else: .04 fi stem#;
+serif_drop#:=if style=2: 0 else: 4 fi /36pt#;
+notch_cut#:=if style=1: 18/36 elseif style=2: 25/36 else: 10 fi pt#;
+cap_notch_cut#:=if style=0: 10 else: 25/36 fi pt#;
+dish#:=if style=0: 1 else: 0 fi /36pt#;
+bracket#:=if style=0: abs(31/36pt#-slab#) else: 0pt# fi;
+rule_thickness#:=if style=2: 25/36 else: .4 fi pt#;
+curve#:=if style<>2: 5/36pt# + fi stem#; 
+cap_curve#:=if style=2: 1 else: 1.2 fi curve#;
+ess#:=.95curve#;
+cap_ess#:=.95cap_curve#;
+acc_height#:=75/36pt#;   
+dot_height#:=66/36pt#;  
+udot_height#:=59/36pt#; 
+dot_size#:=if style=2: 7.3/36pt# else: 1/2pt# fi +.8stem#;    
+flare#:=if style=2: 5/36pt#+.71 else: 3/4pt#+.44 fi stem#; 
+jut#:=if style=1: 0 else: serifs fi*pt#; 
+cap_jut#:=if style=2: 1 else: 1.3 fi jut#;
+beak#:=if style=1: .5/36pt# elseif style=2: 1.5jut# else: 2.5jut# fi ;
+beak_jut#:=if style=0: 10 else: 0 fi /36pt#;
+boolean serifs; % "serifs" will now be used for something different
+serifs:=(style<>1); % this overwrites the variable serifs intentionally
+monospace:=(style=3);
+variant_g:=(slant<>0);
+low_asterisk:=monospace;
+hefty:=(style>0);
+square_dots:=(style=1);
+math_fitting:=false;
+math_spread:=0; 
+fudge:=if style=1: .93 elseif style=2: .81 else: 1 fi;
+superpull:=.1superness; 
+displaying:=proofing;
+
+% now the glyphs
+input ec/exaccess;
+input ec/expseudo;
+mode_setup; font_setup; pseudo_setup;
+input exruwestmod;
+input ec/exrueast;
+if slant=0:
+ input ec/exrlwest;
+ input ec/exrleast;
+else:
+ input ec/exileast;
+ input ec/exilwest;
+fi
+input ec/exbraces;
+input ec/expunct;
+input ec/exaccent;
+input ec/exsign;
+if slant=0:
+ input ec/exrlig;
+ input ec/exromp;
+else:
+ input ec/exilig;
+ input ec/exitalp;
+fi
+input ec/exrulett;
+if slant=0:
+ input ec/exrllett;
+ input ec/exrdigit;
+else:
+ input exillett; 
+ input exidigit;
+fi
+
+
+font_coding_scheme:="T1";
+boundarychar:=oct"027";
+font_slant slant; 
+font_x_height x_height#;
+font_cap_height cap_height#;
+font_asc_height asc_height#;
+font_acc_cap_height (cap_height#+acc_height#);
+font_desc_depth desc_depth#;
+font_max_height (max(asc_height#,body_height#,
+  cap_height#+acc_height#));
+font_max_depth (max(desc_depth#,paren_depth#,the_ogonek_depth#));
+font_baselineskip max(1.2*designsize,body_height#+paren_depth#);
+
+
+

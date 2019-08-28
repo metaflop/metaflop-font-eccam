@@ -1,0 +1,42 @@
+% Copyright (c) 2019 by Linus Romer as part of the METAFLOP project by
+% Marco Müller, Alexis Reigl and Linus Romer. This work relies heavily 
+% on the work of J"org Knappen and Norbert Schwarz for the European
+% Computer Modern project ("ec fonts"), which again is based on the 
+% Computer Modern sources by Donald Knuth.
+% The files inside the ec directory are part of the EC project. For
+% copyright questions, please read copyrite.txt inside the ec directory.
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+% EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+% MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+% IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
+% CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+% TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+% SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
+%
+% Remark: "serifs" is used for two different things here: In order
+% to be compatible to other fonts of the Metaflop project (such as
+% Funtauna), "serifs" in this very file stands for the jut and is given
+% in units of pt#, but before and later, "serifs" will
+% be a boolean (has serifs or is sans serif?).
+
+input fontbase; numeric serifs;
+
+style:=0;               % 0=serif / 1=sansserif / 2=monospace
+u#:=0.55pt#;            % unit width                       $ 0.4 / 1
+body_height#:=if style=2: 250 else: 270 fi /36pt#; %       @hidden
+cap#:=0.91body_height#; % cap height	    			   $ 0.75 / 1	
+mean#:=0.62cap#;        % mean height				       $ 0.5 / 0.8	
+asc#:=0.92body_height#; % ascender height		           $ 0.75 / 1.25	
+des#:=0.26body_height#; % descender height		           $ 0.25 / 0.75	
+px#:=0.69pt#;           % stem width                       $ 0.10 / 1.20
+py#:=0.25pt#;           % hair width                       $ 0.10 / 1.10
+corner:=.89;            % roundness of corners             $ 0.00 / 1.00
+serifs:=0.78;           % protrusion of serifs in pt#      $ 0.00 / 1.20
+slant:=0;               % slanting amount                  $ 0 / 0.3
+superness:=0.71;        % parameter for superellipses      $ 0.6 / 1
+beak_darkness:=0.37;    % darkness of serifs               $ 0 / 1
+
+input glyphs;
+input ligkerndef;
+bye;       
+

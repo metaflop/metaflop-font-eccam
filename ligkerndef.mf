@@ -1,0 +1,10 @@
+if monospace: font_normal_space 9u#; 
+ font_quad 18u#;
+ font_extra_space 9u#;
+ input ec/exmligtb;   
+else: font_normal_space 6u#+2letter_fit#;
+ font_normal_stretch 3u#; font_normal_shrink 2u#;
+ font_quad 18u#+4letter_fit#;
+ font_extra_space 2u#;
+ input ec/exrligtb;   
+fi
